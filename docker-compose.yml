@@ -1,0 +1,26 @@
+# https://betterstack.com/community/guides/scaling-python/dockerize-django
+services:
+  db:
+    build:
+      context: .
+      dockerfile: pg-Dockerfile
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: soccerdbuser
+      POSTGRES_DATABASE: soccerdb
+      POSTGRES_PASSWORD: soccerdbpass # TODO - Put this in a secrets file
+    ports:
+      - 5432:5432
+  python:
+    build:
+      context: .
+      dockerfile: python-Dockerfile
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+volumes:
+  pg_data:
