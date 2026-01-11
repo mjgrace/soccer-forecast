@@ -12,11 +12,12 @@ f.close()
 # SEASON_IDS = [39, 253, 140, 135, 61, 262]
 SEASON_IDS = [39]
 # 39 - Premier League
-# 253 - MLS
+# 253 - MLS - USA
 # 140 - La Liga - Spain
 # 135 - Serie A - Italy
 # 61 - Ligue 1 - France
 # 262 - Liga MX - Mexico
+# 78 - Bundesliga - Germany
 
 START_DATE = datetime.today()
 time_delta = timedelta(days=7)
